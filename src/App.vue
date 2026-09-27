@@ -26,8 +26,8 @@ onUnmounted(() => {
 
 const highlightStats = [
   { label: 'Lokasi Desa', value: 'Desa Boidu' },
-  { label: 'Periode KKN', value: 'Jul - Agu 2026' },
-  { label: 'Jumlah Anggota', value: '15 Mahasiswa' },
+  { label: 'Periode KKN', value: 'Agustus - September 2026' },
+  { label: 'Jumlah Anggota', value: '16 Mahasiswa', subtext: '11 Perempuan, 5 Laki-laki' },
 ]
 
 const prokerInti = [
@@ -101,9 +101,27 @@ const dokumentasi = [
 ]
 
 const dokumentasiKarangTaruna = [
-  { title: 'Rapat Pembahasan Raigma Cup 3', image: '/Kolaborasi Pemuda/Rapat Pembahasan Raigma Cup 3.jpg' },
-  { title: 'Rapat Perdana', image: '/Kolaborasi Pemuda/Rapat Perdana.jpg' },
-  { title: 'Semarak HUT RI Ke-81', image: '/Kolaborasi Pemuda/Semarak HUT RI Ke 81.jpg' }
+  { 
+    title: 'Rapat Pembahasan Raigma Cup 3', 
+    category: 'Kolaborasi Pemuda',
+    date: '30 Jul 2026',
+    description: 'Pertemuan rutin dan intensif dengan anggota Karang Taruna Mutiara Hijau untuk mematangkan konsep, jadwal, dan kepanitiaan acara perlombaan tahunan Raigma Cup 3. Kami berdiskusi mengenai pembagian tugas dan anggaran agar acara dapat berjalan dengan lancar dan meriah.',
+    image: '/Kolaborasi Pemuda/Rapat Pembahasan Raigma Cup 3.jpg' 
+  },
+  { 
+    title: 'Rapat Perdana', 
+    category: 'Kolaborasi Pemuda',
+    date: '10 Jul 2026',
+    description: 'Rapat perdana perkenalan dan penyatuan visi antara mahasiswa KKN dan pengurus Karang Taruna Mutiara Hijau. Pada momen ini, kami saling bertukar ide dan menyepakati beberapa program kolaborasi yang akan dilaksanakan demi kemajuan pemuda dan masyarakat Desa Boidu.',
+    image: '/Kolaborasi Pemuda/Rapat Perdana.jpg' 
+  },
+  { 
+    title: 'Semarak HUT RI Ke-81', 
+    category: 'Kolaborasi Pemuda',
+    date: '17 Agu 2026',
+    description: 'Puncak perayaan Hari Kemerdekaan Republik Indonesia ke-81 di Desa Boidu. Bersama Karang Taruna Mutiara Hijau, mahasiswa KKN menyelenggarakan berbagai perlombaan rakyat yang meriah dan menghibur, mempererat tali persaudaraan antarwarga.',
+    image: '/Kolaborasi Pemuda/Semarak HUT RI Ke 81.jpg' 
+  }
 ]
 
 const sorotanKegiatan = [
@@ -113,7 +131,7 @@ const sorotanKegiatan = [
     date: '10 Jul 2026',
     description: 'Dapur yang sehat dimulai dari pekarangan rumah. Kami hadir menemani ibu-ibu dan keluarga di Desa Boidu untuk mengubah lahan kosong di sekitar rumah menjadi sumber pangan keluarga yang nyata, hemat, dan berkelanjutan.',
     sliderImage: '/Sorotan Kegiatan/Pelatihan budidaya tanaman pekarangan untuk ketahanan pangan keluarga FOTO 1.jpg',
-    image: '/Sorotan Kegiatan/Pelatihan budidaya tanaman pekarangan untuk ketahanan pangan keluarga.jpg'
+    image: '/Sorotan Kegiatan/Pelatihan budidaya tanaman pekarangan untuk ketahanan pangan keluarga FOTO 2.jpg'
   },
   { 
     title: 'Pembuatan KEPER (Kebun Percontohan)', 
@@ -339,6 +357,7 @@ const sorotanKegiatan = [
               <div v-for="stat in highlightStats" :key="stat.label" class="p-4 rounded-xl bg-gray-50 border border-gray-100">
                 <div class="text-sm text-gray-500 mb-1">{{ stat.label }}</div>
                 <div class="font-bold text-lg text-primary-pink-dark">{{ stat.value }}</div>
+                <div v-if="stat.subtext" class="text-[11px] text-gray-500 mt-1.5 font-medium leading-tight">{{ stat.subtext }}</div>
               </div>
             </div>
             <div class="flex gap-4 pt-2">
@@ -584,7 +603,7 @@ const sorotanKegiatan = [
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div v-for="doc in dokumentasiKarangTaruna" :key="doc.title" class="group relative overflow-hidden rounded-[2rem] shadow-md hover:shadow-2xl transition-all duration-300">
+          <div v-for="doc in dokumentasiKarangTaruna" :key="doc.title" @click="selectedArticle = doc; showArticleModal = true" class="group relative overflow-hidden rounded-[2rem] shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer">
             <div class="aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center">
               <img v-if="doc.image" :src="doc.image" :alt="doc.title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div v-else class="flex flex-col items-center gap-3 p-6 text-center">
@@ -795,20 +814,20 @@ const sorotanKegiatan = [
           <!-- Article Body -->
           <div class="p-6 md:p-10 text-gray-700 space-y-6 md:text-lg leading-relaxed bg-slate-50">
             <p>
-              <span class="font-bold text-4xl float-left mr-2 mt-1 text-primary-pink-dark">D</span>{{ selectedArticle.description.substring(1) }}
+              <span class="font-bold text-4xl float-left mr-2 mt-1 text-primary-pink-dark">{{ selectedArticle.description.charAt(0) }}</span>{{ selectedArticle.description.substring(1) }}
             </p>
             <p>
-              Kegiatan ini dirancang bukan sekadar pelatihan biasa — melainkan sebuah solusi nyata bagi setiap keluarga di Desa Boidu. Para ibu rumah tangga dan kepala keluarga diajak langsung untuk belajar cara menanam, merawat, dan memanen tanaman di lahan pekarangan sendiri, tanpa harus mengeluarkan biaya besar. Materi disampaikan secara praktis, ringan, dan mudah dipraktikkan di rumah.
+              Kegiatan ini dirancang bukan sekadar pelatihan biasa melainkan sebuah solusi nyata bagi setiap keluarga di Desa Boidu. Para ibu rumah tangga dan kepala keluarga diajak langsung untuk belajar cara menanam, merawat, dan memanen tanaman di lahan pekarangan sendiri, tanpa harus mengeluarkan biaya besar. Materi disampaikan secara praktis, ringan, dan mudah dipraktikkan di rumah.
             </p>
             
             <blockquote class="border-l-4 border-primary-green bg-white p-6 rounded-r-xl shadow-sm italic text-gray-800 my-8">
-              "Kegiatan seperti ini bukan sekadar menjalankan program kerja. Ini menyentuh langsung kehidupan keluarga kami — ketika pekarangan sendiri bisa menghasilkan kebutuhan dapur sehari-hari, itulah kemandirian yang sesungguhnya."
+              "Kegiatan seperti ini bukan sekadar menjalankan program kerja. Ini menyentuh langsung kehidupan keluarga kami ketika pekarangan sendiri bisa menghasilkan kebutuhan dapur sehari-hari, itulah kemandirian yang sesungguhnya."
               <br/>
-              <span class="block mt-3 text-sm font-bold text-gray-500 not-italic">— Bpk. Masri Polihito (Kepala Desa Boidu)</span>
+              <span class="block mt-3 text-sm font-bold text-gray-500 not-italic">Bpk. Masri Polihito (Kepala Desa Boidu)</span>
             </blockquote>
             
             <p>
-              Harapan kami, setelah program <strong>{{ selectedArticle.title }}</strong> ini berjalan, setiap rumah tangga di Desa Boidu tidak lagi memandang pekarangan sebagai lahan tidur. Sebaliknya, ia menjadi aset produktif yang nyata — tempat tumbuhnya kemandirian pangan keluarga, satu tanaman demi satu tanaman.
+              Harapan kami, setelah program <strong>{{ selectedArticle.title }}</strong> ini berjalan, setiap rumah tangga di Desa Boidu tidak lagi memandang pekarangan sebagai lahan tidur. Sebaliknya, ia menjadi aset produktif yang nyata tempat tumbuhnya kemandirian pangan keluarga, satu tanaman demi satu tanaman.
             </p>
             <p>
               Kami percaya, perubahan besar selalu dimulai dari langkah kecil di rumah. Dan bagi kami, bisa hadir mendampingi keluarga-keluarga Desa Boidu dalam langkah pertama itu adalah kehormatan yang tak ternilai.
