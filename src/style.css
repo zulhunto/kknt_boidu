@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-pink: #f9a8d4; /* pink-300 */
+  --color-primary-pink-dark: #db2777; /* pink-600 */
+  --color-primary-green: #bbf7d0; /* green-200 */
+  --color-primary-green-dark: #16a34a; /* green-600 */
+  --color-footer-bg: #14532d; /* green-900 */
+}
+
+@layer utilities {
+  .blob-mask {
+    clip-path: polygon(
+      50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%
+    );
+  }
+}
