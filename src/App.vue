@@ -112,10 +112,10 @@ const showArticleModal = ref(false)
 const selectedArticle = ref(null)
 
 const dokumentasi = [
-  { title: 'Doa Bersama Maulid Nabi Muhammad SAW', date: '12 Jul 2026', category: 'Keagamaan', image: '/Galeri Dokumentasi/DOA BERSAMA DI MASJID, DALAM RANGKA PERAYAAN MAULID NABI MUHAMMAD .jpg' },
-  { title: 'Kunjungan ke Bumi Perkemahan', date: '15 Jul 2026', category: 'Kegiatan', image: '/Galeri Dokumentasi/KUNJUNGAN KE BUMI PERKEMAHAAN.jpg' },
-  { title: 'Kunjungan Perdana & Observasi Lahan Proker', date: '20 Jul 2026', category: 'Lingkungan', image: '/Galeri Dokumentasi/KUNJUNGAN PERDANA, DAN OBSERVASI AWAL CALON LAHAN PROKER.jpg' },
-  { title: 'Pengukuran Bedengan Proker Inti', date: '5 Agu 2026', category: 'Pertanian', image: '/Galeri Dokumentasi/PENGUKURAN BEDENGAN PROKER INTI.jpg' },
+  { title: 'Doa Bersama Maulid Nabi Muhammad SAW', date: '18 Agu 2026', category: 'Keagamaan', image: '/Galeri Dokumentasi/DOA BERSAMA DI MASJID, DALAM RANGKA PERAYAAN MAULID NABI MUHAMMAD .jpg' },
+  { title: 'Kunjungan ke Bumi Perkemahan', date: '18 Sep 2026', category: 'Kegiatan', image: '/Galeri Dokumentasi/KUNJUNGAN KE BUMI PERKEMAHAAN.jpg' },
+  { title: 'Kunjungan Perdana & Observasi Lahan Proker', date: '16 Agu 2026', category: 'Lingkungan', image: '/Galeri Dokumentasi/KUNJUNGAN PERDANA, DAN OBSERVASI AWAL CALON LAHAN PROKER.jpg' },
+  { title: 'Pengukuran Bedengan Proker Inti', date: '28 Agu 2026', category: 'Pertanian', image: '/Galeri Dokumentasi/PENGUKURAN BEDENGAN PROKER INTI.jpg' },
   { title: 'Semarak HUT RI di Kantor Camat Bulango', date: '17 Agu 2026', category: 'Kemerdekaan', image: '/Galeri Dokumentasi/SEMARAK HUT RI KANTOR CAMAT BULANGO.jpg' },
 ]
 
@@ -123,14 +123,14 @@ const dokumentasiKarangTaruna = [
   { 
     title: 'Rapat Pembahasan Raigma Cup 3', 
     category: 'Kolaborasi Pemuda',
-    date: '30 Jul 2026',
+    date: '2 Sep 2026',
     description: 'Pertemuan rutin dan intensif dengan anggota Karang Taruna Mutiara Hijau untuk mematangkan konsep, jadwal, dan kepanitiaan acara perlombaan tahunan Raigma Cup 3. Kami berdiskusi mengenai pembagian tugas dan anggaran agar acara dapat berjalan dengan lancar dan meriah.',
     image: '/Kolaborasi Pemuda/Rapat Pembahasan Raigma Cup 3.jpg' 
   },
   { 
     title: 'Rapat Perdana', 
     category: 'Kolaborasi Pemuda',
-    date: '10 Jul 2026',
+    date: '22 Agu 2026',
     description: 'Rapat perdana perkenalan dan penyatuan visi antara mahasiswa KKN dan pengurus Karang Taruna Mutiara Hijau. Pada momen ini, kami saling bertukar ide dan menyepakati beberapa program kolaborasi yang akan dilaksanakan demi kemajuan pemuda dan masyarakat Desa Boidu.',
     image: '/Kolaborasi Pemuda/Rapat Perdana.jpg' 
   },
@@ -144,7 +144,7 @@ const dokumentasiKarangTaruna = [
   { 
     title: 'KKN-T bersama KTMH Raigma Cup 3', 
     category: 'Kolaborasi Pemuda',
-    date: '10 Agu 2026',
+    date: '12 Sep 2026',
     description: 'Dokumentasi kebersamaan tim KKN Tematik bersama Karang Taruna Mutiara Hijau dalam rangkaian kegiatan Raigma Cup 3. Sinergi nyata antara mahasiswa dan pemuda desa dalam membangun semangat kebersamaan.',
     image: '/Kolaborasi Pemuda/KKN-T WITH KTMH RAIGMA CUP 3.jpg' 
   }
@@ -154,7 +154,7 @@ const sorotanKegiatan = [
   { 
     title: 'Pelatihan Budidaya Tanaman Pekarangan', 
     category: 'Ketahanan Pangan',
-    date: '10 Jul 2026',
+    date: '22 Agu 2026',
     description: 'Dapur yang sehat dimulai dari pekarangan rumah. Kami hadir menemani ibu-ibu dan keluarga di Desa Boidu untuk mengubah lahan kosong di sekitar rumah menjadi sumber pangan keluarga yang nyata, hemat, dan berkelanjutan.',
     sliderImage: '/Sorotan Kegiatan/Pelatihan budidaya tanaman pekarangan untuk ketahanan pangan keluarga FOTO 1.jpg',
     image: '/Sorotan Kegiatan/Pelatihan budidaya tanaman pekarangan untuk ketahanan pangan keluarga FOTO 2.jpg'
@@ -162,28 +162,28 @@ const sorotanKegiatan = [
   { 
     title: 'Pembuatan KEPER (Kebun Percontohan)', 
     category: 'Pertanian Desa',
-    date: '18 Jul 2026',
+    date: '30 Agu 2026',
     description: 'Membangun kebun percontohan sebagai wujud nyata pemanfaatan lahan pekarangan secara optimal dan produktif untuk menanam bibit rica (cabai) dan tomat.',
     image: '/Sorotan Kegiatan/Pembuatan KEPER (Kebun Percontohan).jpeg'
   },
   { 
     title: 'Distribusi Polybag Bibit Rica & Tomat', 
     category: 'Pemberdayaan Warga',
-    date: '25 Jul 2026',
+    date: '5 Sep 2026',
     description: 'Membagikan polybag berisi bibit rica dan tomat kepada rumah tangga sebagai langkah awal partisipasi aktif warga dalam program ketahanan pangan mandiri.',
     image: '/Sorotan Kegiatan/Distribusi Polybag Bibit Rica & Tomat.jpeg'
   },
   { 
     title: 'Raigma Cup 3', 
     category: 'Kolaborasi Pemuda',
-    date: '10 Agu 2026',
+    date: '12 Sep 2026',
     description: 'Rangkaian Kegiatan Mahasiswa yang berkolaborasi dengan Karang Taruna Mutiara Hijau Desa Boidu untuk mempererat tali silaturahmi dan semangat kepemudaan.',
     image: '/Sorotan Kegiatan/RAIGMA CUP 3.jpg'
   },
   {
     title: 'Sosialisasi Ketahanan Pangan Melalui Budidaya Cabai & Tomat',
     category: 'Proker Tambahan',
-    date: '20 Agu 2026',
+    date: '18 Sep 2026',
     description: 'Kegiatan sosialisasi mengenai pentingnya ketahanan pangan keluarga dan optimalisasi pemanfaatan pekarangan melalui budidaya tanaman cabai dan tomat.',
     image: '/Sorotan Kegiatan/sosialisasi ketahanan pangan melalui budidaya cabai dan tomat.jpg'
   }
