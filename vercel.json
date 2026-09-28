@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/(logo%20kkn|slideshow|Humas|PDD|Galeri%20Dokumentasi|Sorotan%20Kegiatan|Kolaborasi%20Pemuda)/(.*)",
+      "source": "/(logo%20kkn|slideshow|Humas|PDD|DPL|KSB|Acara|Perlengkapan|MP3|Galeri%20Dokumentasi|Sorotan%20Kegiatan|Kolaborasi%20Pemuda|MOMEN%20ACAK%20%26%20CANDID)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

@@ -9,6 +9,8 @@ export default defineConfig({
     vue()
   ],
   build: {
+    target: 'esnext',
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks(id) {
