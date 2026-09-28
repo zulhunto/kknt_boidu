@@ -11,6 +11,23 @@ const heroSlides = [
   '/slideshow/IMG_7638%20(1).jpg'
 ]
 const currentSlide = ref(0)
+const isPlaying = ref(false)
+let audioEl = null
+
+const toggleMusic = () => {
+  if (!audioEl) {
+    audioEl = new Audio('/MP3/ssstik.io_1790577652096.mp3')
+    audioEl.loop = true
+    audioEl.onended = () => { isPlaying.value = false }
+  }
+  if (isPlaying.value) {
+    audioEl.pause()
+    isPlaying.value = false
+  } else {
+    audioEl.play()
+    isPlaying.value = true
+  }
+}
 const isMobileMenuOpen = ref(false)
 let slideInterval
 
@@ -41,16 +58,16 @@ const prokerTambahan = [
 ]
 
 const pembina = [
-  { name: 'Prof., Dr. Fahrudin Zain Olilingo, S.E., M.Si.', role: 'Ketua DPL', image: null },
-  { name: 'Dr. Sahmin Noholo, SE, MM', role: 'Anggota DPL', image: null },
-  { name: 'Dr. Irwan Bempah, S.P., M.P.', role: 'Anggota DPL', image: null },
+  { name: 'Prof., Dr. Fahrudin Zain Olilingo, S.E., M.Si.', role: 'Ketua DPL', image: '/DPL/Prof., Dr. Fahrudin Zain Olilingo, S.E., M.Si..jpg' },
+  { name: 'Dr. Sahmin Noholo, SE, MM', role: 'Anggota DPL', image: '/DPL/Dr. Sahmin Noholo, SE, MM.jpg' },
+  { name: 'Dr. Irwan Bempah, S.P., M.P.', role: 'Anggota DPL', image: '/DPL/Dr. Irwan Bempah, S.P., M.P..jpg' },
   { name: 'Bpk. Masri Polihito', role: 'Kepala Desa Boidu', image: null }
 ]
 
 const pengurusInti = [
   { name: 'Mochamad Fachry Botutihe', role: 'Sekretaris', image: null, tagline: '"Disiplin administrasi adalah kunci kelancaran setiap program desa."' },
-  { name: 'Tegar Purnama Hulopi', role: 'Koordinator Desa', image: null, tagline: '"Pemimpin bukan sekadar memberi arah, tapi berjalan bersama mewujudkan cita."' },
-  { name: 'Siti Rahmadani Mouko', role: 'Bendahara', image: null, tagline: '"Transparansi dan kehati-hatian finansial demi hasil pengabdian maksimal."' }
+  { name: 'Tegar Purnama Hulopi', role: 'Koordinator Desa', image: '/KSB/Tegar Purnama Hulopi.jpeg', tagline: '"Pemimpin bukan sekadar memberi arah, tapi berjalan bersama mewujudkan cita."' },
+  { name: 'Siti Rahmadani Mouko', role: 'Bendahara', image: '/KSB/Siti Rahmadani Mouko.jpeg', tagline: '"Transparansi dan kehati-hatian finansial demi hasil pengabdian maksimal."' }
 ]
 
 const divisi = [
@@ -59,16 +76,16 @@ const divisi = [
     anggota: [
       { name: 'Putri Adelia Nazwa Masiu', image: '/Humas/Putri Adelia Nazwa Masiu.jpeg', tagline: '"Menjadi jembatan aspirasi antara warga dan tim pengabdi."' },
       { name: "Nisrina Qurrotul'Ain", image: "/Humas/Nisrina Qurrotul Ain.jpeg", tagline: '"Komunikasi yang baik adalah awal dari kerjasama yang luar biasa."' },
-      { name: 'Shinta Novia Erianty', image: null, tagline: '"Menyapa desa dengan senyuman dan informasi akurat."' }
+      { name: 'Shinta Novia Erianty', image: '/Humas/Shinta Novia Erianty.jpeg', tagline: '"Menyapa desa dengan senyuman dan informasi akurat."' }
     ]
   },
   {
     nama: 'Acara',
     anggota: [
-      { name: 'Nazwa Putri Mbuinga', image: null, tagline: '"Setiap kegiatan adalah momen berharga yang harus dirancang sempurna."' },
-      { name: 'Awa Monopo', image: null, tagline: '"Memastikan setiap rincian acara membawa dampak bagi desa."' },
-      { name: 'Susilawati Igirisa', image: null, tagline: '"Kreativitas tiada henti untuk senyum warga Boidu."' },
-      { name: 'Karmila Djafar', image: null, tagline: '"Semarak pengabdian hadir dari persiapan yang matang."' }
+      { name: 'Nazwa Putri Mbuinga', image: '/Acara/Nazwa Putri Mbuinga.jpeg', tagline: '"Setiap kegiatan adalah momen berharga yang harus dirancang sempurna."' },
+      { name: 'Awa Monopo', image: '/Acara/Awa Monopo.jpeg', tagline: '"Memastikan setiap rincian acara membawa dampak bagi desa."' },
+      { name: 'Susilawati Igirisa', image: '/Acara/Susilawati Igirisa.jpeg', tagline: '"Kreativitas tiada henti untuk senyum warga Boidu."' },
+      { name: 'Karmila Djafar', image: '/Acara/Karmila Djafar.jpeg', tagline: '"Semarak pengabdian hadir dari persiapan yang matang."' }
     ]
   },
   {
@@ -82,9 +99,9 @@ const divisi = [
   {
     nama: 'PDD',
     anggota: [
-      { name: 'Sri Imelda Monda', image: null, tagline: '"Mengabadikan cerita, mendokumentasikan setiap senyum dan usaha."' },
-      { name: 'Siti Fadhila Noholo', image: '/PDD/Siti Fadhila Noholo.jpeg', tagline: '"Lensa kami menangkap esensi pengabdian yang sebenarnya."' },
-      { name: 'Mustika Yusuf', image: null, tagline: '"Visual yang berbicara lebih lantang daripada sekadar kata."' }
+      { name: 'Sri Imelda Monda', image: '/PDD/Sri Imelda Monda.jpeg', tagline: '"Mengabadikan cerita, mendokumentasikan setiap senyum dan usaha."' },
+      { name: 'Siti Fadhila Noholo', image: '/PDD/SITI FADHILA NOHOLO.jpeg', tagline: '"Lensa kami menangkap esensi pengabdian yang sebenarnya."' },
+      { name: 'Mustika Yusuf', image: '/PDD/Mustika Yusuf.jpeg', tagline: '"Visual yang berbicara lebih lantang daripada sekadar kata."' }
     ]
   }
 ]
@@ -98,6 +115,7 @@ const dokumentasi = [
   { title: 'Kunjungan ke Bumi Perkemahan', date: '15 Jul 2026', category: 'Kegiatan', image: '/Galeri Dokumentasi/KUNJUNGAN KE BUMI PERKEMAHAAN.jpg' },
   { title: 'Kunjungan Perdana & Observasi Lahan Proker', date: '20 Jul 2026', category: 'Lingkungan', image: '/Galeri Dokumentasi/KUNJUNGAN PERDANA, DAN OBSERVASI AWAL CALON LAHAN PROKER.jpg' },
   { title: 'Pengukuran Bedengan Proker Inti', date: '5 Agu 2026', category: 'Pertanian', image: '/Galeri Dokumentasi/PENGUKURAN BEDENGAN PROKER INTI.jpg' },
+  { title: 'Semarak HUT RI di Kantor Camat Bulango', date: '17 Agu 2026', category: 'Kemerdekaan', image: '/Galeri Dokumentasi/SEMARAK HUT RI KANTOR CAMAT BULANGO.jpg' },
 ]
 
 const dokumentasiKarangTaruna = [
@@ -121,6 +139,13 @@ const dokumentasiKarangTaruna = [
     date: '17 Agu 2026',
     description: 'Puncak perayaan Hari Kemerdekaan Republik Indonesia ke-81 di Desa Boidu. Bersama Karang Taruna Mutiara Hijau, mahasiswa KKN menyelenggarakan berbagai perlombaan rakyat yang meriah dan menghibur, mempererat tali persaudaraan antarwarga.',
     image: '/Kolaborasi Pemuda/Semarak HUT RI Ke 81.jpg' 
+  },
+  { 
+    title: 'KKN-T bersama KTMH Raigma Cup 3', 
+    category: 'Kolaborasi Pemuda',
+    date: '10 Agu 2026',
+    description: 'Dokumentasi kebersamaan tim KKN Tematik bersama Karang Taruna Mutiara Hijau dalam rangkaian kegiatan Raigma Cup 3. Sinergi nyata antara mahasiswa dan pemuda desa dalam membangun semangat kebersamaan.',
+    image: '/Kolaborasi Pemuda/KKN-T WITH KTMH RAIGMA CUP 3.jpg' 
   }
 ]
 
@@ -138,22 +163,45 @@ const sorotanKegiatan = [
     category: 'Pertanian Desa',
     date: '18 Jul 2026',
     description: 'Membangun kebun percontohan sebagai wujud nyata pemanfaatan lahan pekarangan secara optimal dan produktif untuk menanam bibit rica (cabai) dan tomat.',
-    image: null
+    image: '/Sorotan Kegiatan/Pembuatan KEPER (Kebun Percontohan).jpeg'
   },
   { 
     title: 'Distribusi Polybag Bibit Rica & Tomat', 
     category: 'Pemberdayaan Warga',
     date: '25 Jul 2026',
     description: 'Membagikan polybag berisi bibit rica dan tomat kepada rumah tangga sebagai langkah awal partisipasi aktif warga dalam program ketahanan pangan mandiri.',
-    image: null
+    image: '/Sorotan Kegiatan/Distribusi Polybag Bibit Rica & Tomat.jpeg'
   },
   { 
     title: 'Raigma Cup 3', 
     category: 'Kolaborasi Pemuda',
     date: '10 Agu 2026',
     description: 'Rangkaian Kegiatan Mahasiswa yang berkolaborasi dengan Karang Taruna Mutiara Hijau Desa Boidu untuk mempererat tali silaturahmi dan semangat kepemudaan.',
-    image: null
+    image: '/Sorotan Kegiatan/RAIGMA CUP 3.jpg'
   }
+]
+
+const dokumentasiRandom = [
+  '/MOMEN ACAK & CANDID/IMG-20260909-WA0116.jpg',
+  '/MOMEN ACAK & CANDID/IMG-20260909-WA0192.jpg',
+  '/MOMEN ACAK & CANDID/IMG_1169.jpg',
+  '/MOMEN ACAK & CANDID/IMG_1189.jpg',
+  '/MOMEN ACAK & CANDID/IMG_1262.jpg',
+  '/MOMEN ACAK & CANDID/IMG_1317 (2).JPG',
+  '/MOMEN ACAK & CANDID/IMG_1321 (1).jpg',
+  '/MOMEN ACAK & CANDID/IMG_1607.jpg',
+  '/MOMEN ACAK & CANDID/IMG_1613.jpg',
+  '/MOMEN ACAK & CANDID/IMG_1729.jpg',
+  '/MOMEN ACAK & CANDID/IMG_1941.jpg',
+  '/MOMEN ACAK & CANDID/IMG_20260829_140054_210 (1).jpg',
+  '/MOMEN ACAK & CANDID/IMG_20260830_141747_220 (1).jpg',
+  '/MOMEN ACAK & CANDID/IMG_20260830_141754_659.jpg',
+  '/MOMEN ACAK & CANDID/IMG_20260830_153721_551.jpg',
+  '/MOMEN ACAK & CANDID/IMG_20260830_204951_825 (2).jpg',
+  '/MOMEN ACAK & CANDID/IMG_20260908_165615_038.jpg',
+  '/MOMEN ACAK & CANDID/IMG_20260913_022905_435.jpg',
+  '/MOMEN ACAK & CANDID/IMG_2791.jpg',
+  '/MOMEN ACAK & CANDID/IMG_2867.jpg'
 ]
 </script>
 
@@ -244,34 +292,32 @@ const sorotanKegiatan = [
           <a href="#tentang" class="bg-primary-pink-dark hover:bg-pink-700 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-pink-200 transition-transform transform hover:-translate-y-1 text-center">
             Mulai Eksplorasi
           </a>
-          <a href="#dokumentasi" class="bg-white border-2 border-gray-200 hover:border-primary-green-dark hover:text-primary-green-dark text-gray-700 px-8 py-3 rounded-full font-bold transition-all flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <button @click="toggleMusic" class="bg-white border-2 border-gray-200 hover:border-primary-pink-dark hover:text-primary-pink-dark text-gray-700 px-8 py-3 rounded-full font-bold transition-all flex items-center justify-center gap-2">
+            <!-- Play icon -->
+            <svg v-if="!isPlaying" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12 7-12 7z" />
             </svg>
-            Lihat Aksi Kami
-          </a>
+            <!-- Pause / equalizer icon -->
+            <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-pink-dark" fill="currentColor" viewBox="0 0 24 24">
+              <rect x="5" y="4" width="4" height="16" rx="1"/>
+              <rect x="15" y="4" width="4" height="16" rx="1"/>
+            </svg>
+            <span>{{ isPlaying ? 'Sedang Putar ♪' : 'Putar Musik' }}</span>
+          </button>
         </div>
       </div>
-      <div class="flex-1 relative">
+      <div class="flex-1 relative pl-0 md:pl-10 mt-12 md:mt-0 flex justify-center w-full">
         <div class="absolute inset-0 bg-primary-green rounded-full blur-3xl opacity-30 animate-pulse"></div>
-        <div class="relative w-full max-w-md mx-auto aspect-square rounded-full border-2 border-dashed border-primary-pink p-4">
-          <div class="relative w-full h-full rounded-full overflow-hidden shadow-2xl bg-gray-100">
-            <transition-group 
-              enter-active-class="transition-opacity duration-1000 ease-in-out absolute inset-0"
-              leave-active-class="transition-opacity duration-1000 ease-in-out absolute inset-0"
-              enter-from-class="opacity-0"
-              leave-to-class="opacity-0"
-            >
-              <img 
-                v-for="(img, index) in heroSlides" 
-                v-show="currentSlide === index"
-                :key="img" 
-                :src="img" 
-                alt="Hero Slideshow" 
-                class="absolute inset-0 w-full h-full object-cover" 
-              />
-            </transition-group>
+        <div class="relative w-full max-w-[300px] md:max-w-[380px] h-[380px] md:h-[480px] rounded-t-full rounded-b-[3rem] border-2 border-dashed border-primary-pink p-3 group mx-auto">
+          <div class="relative w-full h-full rounded-t-full rounded-b-[2.2rem] overflow-hidden shadow-2xl bg-gray-100 transform group-hover:scale-[1.03] transition-transform duration-700">
+            <img 
+              v-for="(img, index) in heroSlides" 
+              :key="index"
+              :src="img" 
+              alt="Hero Slideshow" 
+              class="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out"
+              :style="{ opacity: currentSlide === index ? 1 : 0, zIndex: currentSlide === index ? 10 : 0 }"
+            />
           </div>
           
           <!-- Decorative elements with SVGs -->
@@ -587,6 +633,32 @@ const sorotanKegiatan = [
                 </div>
                 <h3 class="font-extrabold text-3xl md:text-5xl lg:text-6xl drop-shadow-lg leading-tight">{{ doc.title }}</h3>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dokumentasi Random -->
+    <section id="momen-acak" class="py-20 relative px-6 z-10 bg-pink-50/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="text-primary-pink-dark font-bold tracking-wider uppercase text-sm mb-2 block">Di Balik Layar</span>
+          <h2 class="text-4xl font-bold mb-4">Momen Acak & Candid</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Potret keseharian, kebersamaan, dan keseruan tim KKN kami selama mengabdi di Desa Boidu.</p>
+        </div>
+        
+        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
+          <div v-for="(img, idx) in dokumentasiRandom" :key="idx" class="break-inside-avoid relative group overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300">
+            <img v-if="img" :src="img" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Momen KKN" loading="lazy" />
+            <div v-else class="w-full bg-gradient-to-br from-pink-50 to-gray-100 flex flex-col items-center justify-center" :class="idx % 3 === 0 ? 'aspect-[3/4]' : (idx % 2 === 0 ? 'aspect-square' : 'aspect-[4/3]')">
+              <svg class="w-10 h-10 mb-2 text-pink-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-pink-300">Foto {{ idx + 1 }}</span>
+            </div>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
             </div>
           </div>
         </div>
