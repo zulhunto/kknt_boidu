@@ -61,7 +61,7 @@ const pembina = [
   { name: 'Prof., Dr. Fahrudin Zain Olilingo, S.E., M.Si.', role: 'Ketua DPL', image: '/DPL/Prof., Dr. Fahrudin Zain Olilingo, S.E., M.Si..jpg' },
   { name: 'Dr. Sahmin Noholo, SE, MM', role: 'Anggota DPL', image: '/DPL/Dr. Sahmin Noholo, SE, MM.jpg' },
   { name: 'Dr. Irwan Bempah, S.P., M.P.', role: 'Anggota DPL', image: '/DPL/Dr. Irwan Bempah, S.P., M.P..jpg' },
-  { name: 'Bpk. Masri Polihito', role: 'Kepala Desa Boidu', image: null }
+  { name: 'Bpk. Masri Polihito', role: 'Kepala Desa Boidu', image: '/DPL/Bpk. Masri Polihito.jpeg' }
 ]
 
 const pengurusInti = [
