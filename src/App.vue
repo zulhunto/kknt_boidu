@@ -100,7 +100,7 @@ const divisi = [
     nama: 'PDD',
     anggota: [
       { name: 'Sri Imelda Monda', image: '/PDD/Sri Imelda Monda.jpeg', tagline: '"Mengabadikan cerita, mendokumentasikan setiap senyum dan usaha."' },
-      { name: 'Siti Fadhila Noholo', image: '/PDD/SITI FADHILA NOHOLO.jpeg', tagline: '"Lensa kami menangkap esensi pengabdian yang sebenarnya."' },
+      { name: 'Siti Fadhila Noholo', image: '/PDD/Siti Fadhila Noholo.jpeg', tagline: '"Lensa kami menangkap esensi pengabdian yang sebenarnya."' },
       { name: 'Mustika Yusuf', image: '/PDD/Mustika Yusuf.jpeg', tagline: '"Visual yang berbicara lebih lantang daripada sekadar kata."' }
     ]
   }
