@@ -54,7 +54,8 @@ const prokerInti = [
 ]
 
 const prokerTambahan = [
-  "Raigma cup 3 (Rangkaian Kegiatan Mahasiswa) kolaborasi dengan Karang Taruna Mutiara Hijau Desa Boidu"
+  "Raigma cup 3 (Rangkaian Kegiatan Mahasiswa) kolaborasi dengan Karang Taruna Mutiara Hijau Desa Boidu",
+  "Sosialisasi ketahanan pangan melalui budidaya cabai dan tomat"
 ]
 
 const pembina = [
@@ -178,6 +179,13 @@ const sorotanKegiatan = [
     date: '10 Agu 2026',
     description: 'Rangkaian Kegiatan Mahasiswa yang berkolaborasi dengan Karang Taruna Mutiara Hijau Desa Boidu untuk mempererat tali silaturahmi dan semangat kepemudaan.',
     image: '/Sorotan Kegiatan/RAIGMA CUP 3.jpg'
+  },
+  {
+    title: 'Sosialisasi Ketahanan Pangan Melalui Budidaya Cabai & Tomat',
+    category: 'Proker Tambahan',
+    date: '20 Agu 2026',
+    description: 'Kegiatan sosialisasi mengenai pentingnya ketahanan pangan keluarga dan optimalisasi pemanfaatan pekarangan melalui budidaya tanaman cabai dan tomat.',
+    image: '/Sorotan Kegiatan/sosialisasi ketahanan pangan melalui budidaya cabai dan tomat.jpg'
   }
 ]
 
